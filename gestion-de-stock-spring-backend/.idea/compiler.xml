@@ -7,8 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Gestion_Spring_Back_end" />
         <module name="gestion-de-stock-backend-master" />
+        <module name="Gestion_Spring_Back_end" />
+        <module name="gestion-de-stock-spring-backend" />
         <module name="Spring_Back_end" />
       </profile>
     </annotationProcessing>
@@ -18,6 +19,7 @@
       <module name="Gestion_Spring_Back_end" options="-parameters" />
       <module name="Spring_Back_end" options="-parameters" />
       <module name="gestion-de-stock-backend-master" options="-parameters" />
+      <module name="gestion-de-stock-spring-backend" options="-parameters" />
     </option>
   </component>
 </project>

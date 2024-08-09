@@ -46,27 +46,30 @@ public class SecurityConfiguration {
 
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    http.addFilterBefore(corsFilter(), SessionManagementFilter.class)
-            .csrf().disable()
-            .authorizeHttpRequests()
-            .requestMatchers("/**/authenticate",
-                    "/**/entreprises/create",
-                    "/v2/api-docs",
-                    "/swagger-resources",
-                    "/swagger-resources/**",
-                    "/configuration/ui",
-                    "/configuration/security",
-                    "/swagger-ui.html",
-                    "/webjars/**",
-                    "/v3/api-docs/**",
-                    "/swagger-ui/**").permitAll()
-            .anyRequest().authenticated()
-            .and().sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    http
+            .addFilterBefore(corsFilter(), SessionManagementFilter.class)
+            .csrf(csrf -> csrf.disable()) // Mise à jour de l'API CSRF
+            .authorizeHttpRequests(auth -> auth
+                    .requestMatchers("/**/authenticate",
+                            "/**/entreprises/create",
+                            "/v2/api-docs",
+                            "/swagger-resources",
+                            "/swagger-resources/**",
+                            "/configuration/ui",
+                            "/configuration/security",
+                            "/swagger-ui.html",
+                            "/webjars/**",
+                            "/v3/api-docs/**",
+                            "/swagger-ui/**").permitAll()
+                    .anyRequest().authenticated()
+            )
+            .sessionManagement(session -> session
+                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Mise à jour de sessionManagement
+            );
 
     http.addFilterBefore(applicationRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
-    return http.build();
+    return http.build(); // Mise à jour pour construire la chaîne de filtres de sécurité
   }
 
   @Bean
@@ -74,8 +77,7 @@ public class SecurityConfiguration {
     final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     final CorsConfiguration config = new CorsConfiguration();
     config.setAllowCredentials(true);
-    // Don't do this in production, use a proper list of allowed origins
-    config.setAllowedOriginPatterns(Collections.singletonList("*"));
+    config.setAllowedOriginPatterns(Collections.singletonList("*")); // Mise à jour de AllowedOriginPatterns
     config.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization"));
     config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "OPTIONS", "DELETE", "PATCH"));
     source.registerCorsConfiguration("/**", config);

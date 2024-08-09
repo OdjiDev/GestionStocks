@@ -5,9 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import java.math.BigDecimal;
 import java.util.List;
+
+
+
+
 
 @Data
 @NoArgsConstructor
@@ -15,7 +22,7 @@ import java.util.List;
 //@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "article")
-public class Article  {
+public class Article {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

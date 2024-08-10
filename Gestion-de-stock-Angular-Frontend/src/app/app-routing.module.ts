@@ -21,55 +21,61 @@ import {ChangerMotDePasseComponent} from './pages/profil/changer-mot-de-passe/ch
 import {ApplicationGuardService} from './services/guard/application-guard.service';
 
 const routes: Routes = [
-  {
-    path: 'login',
-    component: PageLoginComponent
+  // {
+  //   path: 'login',
+  //   component: PageLoginComponent
 
 
-  },
+  // },
+  // {
+  //   path: 'inscrire',
+  //   component: PageInscriptionComponent
+  // },
   {
-    path: 'inscrire',
-    component: PageInscriptionComponent
+    // path: '',
+    // component: PageDashboardComponent,
+    // canActivate: [ApplicationGuardService],
+    // children: [
+
+     path: '',
+     component: PageStatistiquesComponent,
+    ////  canActivate: [ApplicationGuardService],
+    // children: [
   },
-  {
-    path: '',
-    component: PageDashboardComponent,
-    canActivate: [ApplicationGuardService],
-    children: [
       {
         path: 'statistiques',
         component: PageStatistiquesComponent,
-        canActivate: [ApplicationGuardService]
+      //  canActivate: [ApplicationGuardService]
       },
       {
         path: 'articles',
         component: PageArticleComponent,
-        canActivate: [ApplicationGuardService]
+        ////  canActivate: [ApplicationGuardService]
       },
       {
         path: 'nouvelarticle',
         component: NouvelArticleComponent,
-        canActivate: [ApplicationGuardService]
+        // canActivate: [ApplicationGuardService]
       },
       {
         path: 'nouvelarticle/:idArticle',
         component: NouvelArticleComponent,
-        canActivate: [ApplicationGuardService]
+      //  canActivate: [ApplicationGuardService]
       },
       {
         path: 'mvtstk',
         component: PageMvtstkComponent,
-        canActivate: [ApplicationGuardService]
+      //  canActivate: [ApplicationGuardService]
       },
       {
         path: 'clients',
         component: PageClientComponent,
-        canActivate: [ApplicationGuardService]
+      //  canActivate: [ApplicationGuardService]
       },
       {
         path: 'nouveauclient',
         component: NouveauCltFrsComponent,
-        canActivate: [ApplicationGuardService],
+      //  canActivate: [ApplicationGuardService],
         data: {
           origin: 'client'
         }
@@ -77,7 +83,7 @@ const routes: Routes = [
       {
         path: 'nouveauclient/:id',
         component: NouveauCltFrsComponent,
-        canActivate: [ApplicationGuardService],
+      //  canActivate: [ApplicationGuardService],
         data: {
           origin: 'client'
         }
@@ -85,7 +91,7 @@ const routes: Routes = [
       {
         path: 'commandesclient',
         component: PageCmdCltFrsComponent,
-        canActivate: [ApplicationGuardService],
+      //  canActivate: [ApplicationGuardService],
         data: {
           origin: 'client'
         }
@@ -93,7 +99,7 @@ const routes: Routes = [
       {
         path: 'nouvellecommandeclt',
         component: NouvelleCmdCltFrsComponent,
-      canActivate: [ApplicationGuardService],
+    //  canActivate: [ApplicationGuardService],
         data: {
           origin: 'client'
         }
@@ -101,12 +107,12 @@ const routes: Routes = [
       {
         path: 'fournisseurs',
         component: PageFournisseurComponent,
-        canActivate: [ApplicationGuardService]
+      //  canActivate: [ApplicationGuardService]
       },
       {
         path: 'nouveaufournisseur',
         component: NouveauCltFrsComponent,
-        canActivate: [ApplicationGuardService],
+      //  canActivate: [ApplicationGuardService],
         data: {
           origin: 'fournisseur'
         }
@@ -114,7 +120,7 @@ const routes: Routes = [
       {
         path: 'nouveaufournisseur/:id',
         component: NouveauCltFrsComponent,
-        canActivate: [ApplicationGuardService],
+      //  canActivate: [ApplicationGuardService],
         data: {
           origin: 'fournisseur'
         }
@@ -122,7 +128,7 @@ const routes: Routes = [
       {
         path: 'commandesfournisseur',
         component: PageCmdCltFrsComponent,
-        canActivate: [ApplicationGuardService],
+      //  canActivate: [ApplicationGuardService],
         data: {
           origin: 'fournisseur'
         }
@@ -130,7 +136,7 @@ const routes: Routes = [
       {
         path: 'nouvellecommandefrs',
         component: NouvelleCmdCltFrsComponent,
-        canActivate: [ApplicationGuardService],
+      //  canActivate: [ApplicationGuardService],
         data: {
           origin: 'fournisseur'
         }
@@ -138,41 +144,41 @@ const routes: Routes = [
       {
         path: 'categories',
         component: PageCategoriesComponent,
-        canActivate: [ApplicationGuardService]
+      //  canActivate: [ApplicationGuardService]
       },
       {
         path: 'nouvellecategorie',
         component: NoouvelleCategoryComponent,
-        canActivate: [ApplicationGuardService]
+      //  canActivate: [ApplicationGuardService]
       },
       {
         path: 'nouvellecategorie/:idCategory',
         component: NoouvelleCategoryComponent,
-        canActivate: [ApplicationGuardService]
+      //  canActivate: [ApplicationGuardService]
       },
       {
         path: 'utilisateurs',
         component: PageUtilisateurComponent,
-        canActivate: [ApplicationGuardService]
+      //  canActivate: [ApplicationGuardService]
       },
       {
         path: 'nouvelutilisateur',
         component: NouvelUtilisateurComponent,
-        canActivate: [ApplicationGuardService]
+      //  canActivate: [ApplicationGuardService]
       },
       {
         path: 'profil',
         component: PageProfilComponent,
-        canActivate: [ApplicationGuardService]
+      //  canActivate: [ApplicationGuardService]
       },
       {
         path: 'changermotdepasse',
         component: ChangerMotDePasseComponent,
-        canActivate: [ApplicationGuardService]
+      //  canActivate: [ApplicationGuardService]
       }
     ]
-  }
-];
+  // }
+// ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

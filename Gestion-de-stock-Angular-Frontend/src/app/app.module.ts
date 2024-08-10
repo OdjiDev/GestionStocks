@@ -33,9 +33,10 @@ import { NouvelUtilisateurComponent } from './pages/utilisateur/nouvel-utilisate
 import { PageProfilComponent } from './pages/profil/page-profil/page-profil.component';
 import { ChangerMotDePasseComponent } from './pages/profil/changer-mot-de-passe/changer-mot-de-passe.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpInterceptorService} from './services/interceptor/http-interceptor.service';
 import { LoaderComponent } from './composants/loader/loader.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -76,12 +77,21 @@ import { LoaderComponent } from './composants/loader/loader.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule
+
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: HttpInterceptorService,
-    multi: true
-  }],
-  bootstrap: [AppComponent]
+
+providers: [],
+bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+//   ],
+//   providers: [{
+//     provide: HTTP_INTERCEPTORS,
+//     useClass: HttpInterceptorService,
+//     multi: true
+//   }],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
